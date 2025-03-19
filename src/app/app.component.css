@@ -1,0 +1,15 @@
+
+/* Estilos generales */
+.body-main {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+/* Contenido principal */
+.content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
