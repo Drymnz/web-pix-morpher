@@ -1,14 +1,17 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { NavComponent } from './component/nav/nav.component';
-import { FooterComponent } from "./component/footer/footer.component";
-import { ScaleImgComponent } from "./component/scale-img/scale-img.component";
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [NavComponent, FooterComponent, ScaleImgComponent]
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-
 }

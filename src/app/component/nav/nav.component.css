@@ -1,35 +1,59 @@
-/* Barra de navegación */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
+    background: #4A90E2;
+    padding: 15px 30px;
     color: white;
+    flex-wrap: wrap;
+    position: relative;
 }
 
-.navbar .logo {
-    font-size: 24px;
+.logo {
+    font-size: 1.8rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.navbar .nav-links {
-    list-style: none;
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.nav-links {
     display: flex;
-    margin: 0;
-    padding: 0;
+    gap: 20px;
+    transition: max-height 0.3s ease-in-out;
 }
 
-.navbar .nav-links li {
-    margin-left: 20px;
-}
-
-.navbar .nav-links a {
+.nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
 }
 
-.navbar .nav-links a:hover {
-    text-decoration: underline;
+.nav-links a:hover {
+    color: #dfe9f5;
+}
+
+/* Responsivo para móviles con animación */
+@media (max-width: 600px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        max-height: 200px;
+    }
 }

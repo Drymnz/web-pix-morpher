@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ImagenLoadComponent } from '../imagen-load/imagen-load.component';
 import { DimensionSelectorComponent } from '../dimension-selector/dimension-selector.component';
 import { ImageProcessorService } from '../../services/image-processor.service';
+import { FooterComponent } from "../footer/footer.component";
+import { NavComponent } from "../nav/nav.component";
 
 @Component({
   selector: 'app-scale-img',
   standalone: true,
-  imports: [CommonModule, ImagenLoadComponent, DimensionSelectorComponent],
+  imports: [CommonModule, ImagenLoadComponent, DimensionSelectorComponent, FooterComponent, NavComponent],
   templateUrl: './scale-img.component.html',
   styleUrl: './scale-img.component.css'
 })

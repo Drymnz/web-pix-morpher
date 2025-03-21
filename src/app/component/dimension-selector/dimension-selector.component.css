@@ -1,17 +1,36 @@
+/* Contenedor principal */
 div {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  max-width: 300px;
+}
+
+/* Estilo para las etiquetas */
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Estilo para los inputs de número */
+input[type="number"] {
+  padding: 8px;
+  border: 2px solid #4A90E2;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #357ABD;
+  outline: none;
+}
+
+input[type="number"]:hover {
+  border-color: #357ABD;
+}

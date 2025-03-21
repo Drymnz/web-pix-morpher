@@ -1,7 +1,9 @@
-<!-- Barra de navegación -->
 <nav class="navbar">
-    <div class="logo"></div>
-    <ul class="nav-links">
-        <li><a href="#">Inicio</a></li>
+    <div class="logo">PixMorpher</div>
+    <div class="menu-toggle" (click)="toggleMenu()">☰</div>
+    <ul class="nav-links" [class.active]="isMenuOpen">
+        <a href="/home">Inicio</a>
+        <a href="/scale">Escalar</a>
+        <a href="/converter">Convertidor</a>
     </ul>
 </nav>

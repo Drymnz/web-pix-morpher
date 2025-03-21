@@ -1,5 +1,8 @@
 <div>
   <label for="imageFile">Seleccionar Imagen:</label>
+  <label for="imageFile" class="custom-file-upload">
+    Seleccionar Imagen
+  </label>
   <input type="file" id="imageFile" (change)="onFileChange($event)" accept="image/*">
   <div *ngIf="imagePreview" class="image-preview">
     <img [src]="imagePreview" alt="Previsualización" />

@@ -1,8 +1,10 @@
-/* Pie de página */
 .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto;
-  }
+  background: #4A90E2;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

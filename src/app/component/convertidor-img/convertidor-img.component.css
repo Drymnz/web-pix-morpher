@@ -1,0 +1,108 @@
+/* Contenedor principal */
+.convertidor-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título */
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Sección de carga de archivos */
+.upload-section {
+  margin-bottom: 20px;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4A90E2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #357ABD;
+}
+
+#file-upload {
+  display: none;
+}
+
+/* Sección de previsualización */
+.preview-section {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de opciones de formato */
+.options-section {
+  margin-bottom: 20px;
+}
+
+.format-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.format-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.format-option input[type="radio"] {
+  cursor: pointer;
+}
+
+.format-option label {
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Botón de conversión */
+.convert-button {
+  padding: 10px 20px;
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.convert-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.convert-button:hover:not(:disabled) {
+  background-color: #357ABD;
+}

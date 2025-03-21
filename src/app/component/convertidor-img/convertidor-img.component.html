@@ -1,0 +1,33 @@
+<!-- src/app/component/convertidor-img/convertidor-img.component.html -->
+<app-nav></app-nav>
+<div class="convertidor-container">
+  <h2>Convertidor de Imágenes</h2>
+  
+  <div class="upload-section">
+    <label for="file-upload" class="custom-file-upload">
+      Seleccionar Imagen
+    </label>
+    <input id="file-upload" type="file" accept="image/*" (change)="onFileSelected($event)">
+  </div>
+  
+  <div class="preview-section" *ngIf="imagenSeleccionada">
+    <h3>Vista previa</h3>
+    <img [src]="imagenSeleccionada" alt="Vista previa" class="preview-image">
+  </div>
+  
+  <div class="options-section">
+    <h3>Formato de salida</h3>
+    <div class="format-options">
+      <div *ngFor="let formato of formatosDisponibles" class="format-option">
+        <input type="radio" [id]="formato" name="formato" [value]="formato" 
+               [(ngModel)]="formatoSalida">
+        <label [for]="formato">{{ formato.toUpperCase() }}</label>
+      </div>
+    </div>
+  </div>
+  
+  <button class="convert-button" (click)="convertirImagen()" [disabled]="!imagenSeleccionada">
+    Convertir
+  </button>
+</div>
+<app-footer></app-footer>
