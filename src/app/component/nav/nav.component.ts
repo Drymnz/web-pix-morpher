@@ -11,7 +11,14 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 export class NavComponent {
   isMenuOpen = false;
 
+  constructor(private router: Router) {} // Inyecta el servicio Router
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  // Método para redirigir a /home
+  goToHome() {
+    this.router.navigate(['/home']); // Navega a la ruta /home
   }
 }

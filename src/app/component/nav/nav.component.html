@@ -1,9 +1,9 @@
 <nav class="navbar">
-    <div class="logo">PixMorpher</div>
-    <div class="menu-toggle" (click)="toggleMenu()">☰</div>
+    <div class="logo" (click)="goToHome()">PixMorpher</div>
     <ul class="nav-links" [class.active]="isMenuOpen">
-        <a href="/home">Inicio</a>
-        <a href="/scale">Escalar</a>
-        <a href="/converter">Convertidor</a>
+        <a routerLink="/home" (click)="toggleMenu()">Inicio</a>
+        <a routerLink="/scale" (click)="toggleMenu()">Escalar</a>
+        <a routerLink="/converter" (click)="toggleMenu()">Convertidor</a>
     </ul>
+    <div class="menu-toggle" (click)="toggleMenu()">☰</div>
 </nav>
