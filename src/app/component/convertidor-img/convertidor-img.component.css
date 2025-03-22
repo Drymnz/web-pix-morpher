@@ -1,6 +1,7 @@
 /* Contenedor principal */
 .convertidor-container {
   max-width: 800px;
+  height: 100%;
   margin: 20px auto;
   padding: 20px;
   background-color: #ffffff;

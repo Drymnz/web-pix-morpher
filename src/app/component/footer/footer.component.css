@@ -4,7 +4,7 @@
   text-align: center;
   padding: 15px 0;
   font-size: 1rem;
-  position: absolute;
+  position: fixed; /* Cambia a fixed */
   bottom: 0;
   width: 100%;
 }
