@@ -5,13 +5,18 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterOutlet
-  ],
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  jsonData: any[] = []; // Array para almacenar los datos
+
+  ngOnInit(): void {
+    // Llamar al servicio para obtener los datos
+    
+  }
 }

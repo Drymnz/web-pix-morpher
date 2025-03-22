@@ -1,0 +1,10 @@
+{
+  "featureCard": {
+    "title": "Convertir Imágenes",
+    "description": "Convierte tus imágenes entre diferentes formatos como PNG, JPG, WEBP y más.",
+    "action": {
+      "label": "Ir a Convertir",
+      "link": "/converter"
+    }
+  }
+}

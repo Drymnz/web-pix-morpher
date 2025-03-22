@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImagenLoadComponent } from '../imagen-load/imagen-load.component';
 import { DimensionSelectorComponent } from '../dimension-selector/dimension-selector.component';
-import { ImageProcessorService } from '../../services/image-processor.service';
+import { ImageProcessorService } from '../../services/download-images/image-processor.service';
 import { FooterComponent } from "../footer/footer.component";
 import { NavComponent } from "../nav/nav.component";
 
