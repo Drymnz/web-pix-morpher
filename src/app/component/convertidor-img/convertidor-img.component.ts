@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from "../nav/nav.component";
 import { FooterComponent } from "../footer/footer.component";
-import { ImageProcessorService } from '../../services/image-processor.service'; // Importar el servicio
+import { ImageProcessorService } from '../../services/download-imge/image-processor.service'; // Importar el servicio
 
 @Component({
   selector: 'app-convertidor-img',

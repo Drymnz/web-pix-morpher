@@ -1,0 +1,10 @@
+{
+    "featureCard": {
+      "title": "Escalar Imágenes",
+      "description": "Cambia el tamaño de tus imágenes fácilmente manteniendo la calidad.",
+      "button": {
+        "text": "Ir a Escalar",
+        "link": "/scale"
+      }
+    }
+  }
