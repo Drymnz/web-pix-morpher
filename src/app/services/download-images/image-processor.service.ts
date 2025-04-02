@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ImageProcessorService {
-  private validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+  private validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'ico'];
 
   constructor() { }
 
@@ -42,8 +42,11 @@ export class ImageProcessorService {
       // Dibujar imagen redimensionada
       ctx.drawImage(originalImage, 0, 0, targetWidth, targetHeight);
       
+      // Determinar el formato de salida basado en la extensión
+      const outputFormat = this.getOutputFormat(extension);
+      
       // Convertir a blob y obtener URL
-      const resizedImageUrl = await this.canvasToBlob(canvas);
+      const resizedImageUrl = await this.canvasToBlob(canvas, outputFormat);
       
       // Descargar imagen redimensionada
       this.downloadImage(resizedImageUrl, `resized_${file.name}`);
@@ -74,6 +77,29 @@ export class ImageProcessorService {
   }
 
   /**
+   * Determina el formato de salida MIME basado en la extensión del archivo.
+   * @param extension La extensión del archivo.
+   * @returns El formato MIME correspondiente.
+   */
+  private getOutputFormat(extension: string): string {
+    switch (extension) {
+      case 'jpg':
+      case 'jpeg':
+        return 'image/jpeg';
+      case 'png':
+        return 'image/png';
+      case 'gif':
+        return 'image/gif';
+      case 'webp':
+        return 'image/webp';
+      case 'ico':
+        return 'image/x-icon';
+      default:
+        return 'image/jpeg'; // Formato por defecto
+    }
+  }
+
+  /**
    * Carga una imagen desde una URL.
    * @param url La URL de la imagen.
    * @returns Una promesa que se resuelve con el elemento de imagen.
@@ -90,15 +116,17 @@ export class ImageProcessorService {
   /**
    * Convierte un canvas a una URL de blob.
    * @param canvas El canvas a convertir.
+   * @param mimeType El tipo MIME para la conversión.
+   * @param quality La calidad de la imagen (para formatos que lo soportan).
    * @returns Una promesa que se resuelve con la URL del blob.
    */
-  private canvasToBlob(canvas: HTMLCanvasElement): Promise<string> {
+  private canvasToBlob(canvas: HTMLCanvasElement, mimeType: string = 'image/jpeg', quality: number = 0.95): Promise<string> {
     return new Promise((resolve) => {
       canvas.toBlob((blob) => {
         if (blob) {
           resolve(URL.createObjectURL(blob));
         }
-      }, 'image/jpeg', 0.95);
+      }, mimeType, quality);
     });
   }
 

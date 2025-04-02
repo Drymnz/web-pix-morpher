@@ -35,5 +35,10 @@ export interface ImageProcessingOptions {
       mimeType: 'image/webp',
       soportaTransparencia: true,
       conPerdida: true
+    },
+    'ico': {
+      mimeType: 'image/x-icon',
+      soportaTransparencia: true,
+      conPerdida: true
     }
   };
