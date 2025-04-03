@@ -1,0 +1,15 @@
+<app-nav></app-nav>
+<app-imagen-load (fileSelected)="onFileSelected($event)"></app-imagen-load>
+<div *ngIf="isProcessing" class="progress-container">
+    <div class="progress-bar" [style.width.%]="progress"></div>
+    <div class="progress-text">{{ progressMessage }} ({{ progress }}%)</div>
+</div>
+
+<!-- Botón envuelto en el contenedor -->
+<div class="button-container">
+    <button (click)="processImage()" [disabled]="!selectedFile">
+        Procesar y Descargar
+    </button>
+</div>
+
+<app-footer></app-footer>
