@@ -69,7 +69,7 @@ export class BackgroundRemovalService {
 
       // Configurar el callback para cuando se completa la segmentación
       segmentation.onResults(async (results: any) => {
-        console.log('Resultados de segmentación:', results);
+       // console.log('Resultados de segmentación:', results);
 
         // Crear un canvas temporal para el post-procesamiento de la máscara
         const tempCanvas = document.createElement('canvas');

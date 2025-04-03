@@ -77,7 +77,7 @@ export class ImageProcessorService {
               const blobUrl = URL.createObjectURL(blob);
               resolve(blobUrl);
             } else {
-              console.error('Error: No se generó el blob');
+              //console.error('Error: No se generó el blob');
               reject(new Error('Error al generar la imagen'));
             }
           },

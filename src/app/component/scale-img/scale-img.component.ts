@@ -44,7 +44,7 @@ export class ScaleImgComponent {
         this.targetHeight
       );
       
-      console.log('URL de imagen procesada:', imageUrl);
+     // console.log('URL de imagen procesada:', imageUrl);
       
       // Crear un enlace de descarga y simular el clic
       const link = document.createElement('a');

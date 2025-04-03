@@ -56,7 +56,7 @@ export class ConvertidorImgComponent {
       this.anchoPersonalizado = dimensiones.ancho;
       this.altoPersonalizado = dimensiones.alto;
     } catch (error) {
-      console.error('Error al detectar dimensiones:', error);
+     // console.error('Error al detectar dimensiones:', error);
     }
   }
 
@@ -96,7 +96,7 @@ export class ConvertidorImgComponent {
       
       descargarArchivo(imagenProcesada, nombreArchivo);
     } catch (error) {
-      console.error('Error al convertir la imagen:', error);
+     // console.error('Error al convertir la imagen:', error);
       alert('Ocurrió un error al convertir la imagen.');
     }
   }
