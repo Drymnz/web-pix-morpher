@@ -1,15 +1,122 @@
 <app-nav></app-nav>
-<app-imagen-load (fileSelected)="onFileSelected($event)"></app-imagen-load>
-<div *ngIf="isProcessing" class="progress-container">
-    <div class="progress-bar" [style.width.%]="progress"></div>
-    <div class="progress-text">{{ progressMessage }} ({{ progress }}%)</div>
-</div>
 
-<!-- Botón envuelto en el contenedor -->
-<div class="button-container">
-    <button (click)="processImage()" [disabled]="!selectedFile">
-        Procesar y Descargar
+<main class="background-removal-app">
+  <!-- Selector de modo -->
+  <section class="mode-selector" aria-labelledby="mode-selector-heading">
+    <app-imagen-load (fileSelected)="onFileSelected($event)"></app-imagen-load>
+    <h2 id="mode-selector-heading" class="section-heading">Método de eliminación de fondo</h2>
+    <div class="mode-buttons" role="group" aria-label="Métodos de eliminación de fondo">
+      <button *ngFor="let mode of removalModes" 
+              [class.active]="selectedMode === mode.id" 
+              (click)="changeMode(mode.id)"
+              [disabled]="isProcessing" 
+              type="button"
+              [attr.aria-pressed]="selectedMode === mode.id">
+        {{ mode.name }}
+      </button>
+    </div>
+  </section>
+
+  <!-- Vista previa de la imagen -->
+  <section *ngIf="selectedFile" class="preview-section" aria-labelledby="preview-heading">
+    <h3 id="preview-heading" class="section-heading">Vista previa</h3>
+    <figure id="preview-container" class="preview-container" [class.picking-color]="isPickingColor">
+      <!-- El canvas se añadirá aquí dinámicamente -->
+      <figcaption *ngIf="isPickingColor" class="picking-message">
+        Haz clic en la imagen para seleccionar el color a eliminar
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Configuración para modo IA -->
+  <section *ngIf="selectedMode === 'ai'" class="settings-container" aria-labelledby="ai-settings-heading">
+    <h3 id="ai-settings-heading" class="section-heading">Tipo de imagen</h3>
+    <div class="preset-buttons" role="group" aria-label="Preajustes de imagen">
+      <button *ngFor="let preset of presets; let i = index" 
+              [class.active]="selectedPreset === i" 
+              [class.matching-threshold]="isMatchingThreshold(preset.threshold) && selectedPreset !== i"
+              (click)="applyPreset(i)"
+              [disabled]="isProcessing" 
+              type="button"
+              [attr.aria-pressed]="selectedPreset === i">
+        {{ preset.name }}
+        <span *ngIf="selectedPreset === i" aria-hidden="true">✓</span>
+        <span *ngIf="Math.abs(preset.threshold - threshold) < 0.05 && selectedPreset !== i" aria-hidden="true">~</span>
+      </button>
+    </div>
+
+    <div class="advanced-toggle">
+      <button (click)="toggleAdvancedSettings()" 
+              [disabled]="isProcessing" 
+              type="button"
+              [attr.aria-expanded]="showAdvancedSettings">
+        {{ showAdvancedSettings ? 'Ocultar ajustes avanzados' : 'Mostrar ajustes avanzados' }}
+      </button>
+    </div>
+
+    <div *ngIf="showAdvancedSettings" class="advanced-settings">
+      <label for="threshold">Sensibilidad de detección: <output>{{ threshold }}</output></label>
+      <input type="range" id="threshold" [(ngModel)]="threshold" min="0.1" max="0.9" step="0.05"
+        [disabled]="isProcessing" aria-valuemin="0.1" aria-valuemax="0.9" [attr.aria-valuenow]="threshold">
+      <div class="threshold-info">
+        <span>Menos preciso</span>
+        <span>Más preciso</span>
+      </div>
+      <p class="settings-tip">
+        <strong>Consejo:</strong> Para logos y gráficos con bordes definidos, usa valores más bajos (0.1-0.3).
+        Para imágenes con detalles finos como cabello, usa valores más altos (0.5-0.7).
+      </p>
+    </div>
+  </section>
+
+  <!-- Configuración para modo Color Key -->
+  <section *ngIf="selectedMode === 'color'" class="settings-container" aria-labelledby="color-settings-heading">
+    <h3 id="color-settings-heading" class="section-heading">Selección de color</h3>
+    <div class="color-picker-container">
+      <div class="color-preview" [style.background-color]="keyColor" aria-label="Color seleccionado"></div>
+      <input type="color" id="colorPicker" [(ngModel)]="keyColor" [disabled]="isProcessing">
+      <button (click)="toggleColorPicker()" 
+              [disabled]="isProcessing || !selectedFile" 
+              [class.active]="isPickingColor"
+              type="button"
+              [attr.aria-pressed]="isPickingColor">
+        {{ isPickingColor ? 'Cancelar selección' : 'Seleccionar de la imagen' }}
+      </button>
+    </div>
+
+    <div class="tolerance-setting">
+      <label for="colorTolerance">Tolerancia de color: <output>{{ colorTolerance }}</output></label>
+      <input type="range" id="colorTolerance" [(ngModel)]="colorTolerance" min="1" max="100" step="1"
+        [disabled]="isProcessing" aria-valuemin="1" aria-valuemax="100" [attr.aria-valuenow]="colorTolerance">
+      <div class="threshold-info">
+        <span>Exacto</span>
+        <span>Amplio</span>
+      </div>
+      <p class="settings-tip">
+        <strong>Consejo:</strong> Usa valores bajos para colores específicos y valores altos para rangos de colores
+        similares.
+      </p>
+    </div>
+  </section>
+
+  <!-- Acciones principales -->
+  <div class="action-buttons">
+    <button (click)="processImage()" 
+            [disabled]="!selectedFile || isProcessing" 
+            type="button"
+            class="primary-action">
+      Procesar y Descargar
     </button>
-</div>
+    
+    <button *ngIf="selectedMode === 'color'" 
+            (click)="toggleColorPicker()" 
+            [disabled]="isProcessing || !selectedFile" 
+            [class.active]="isPickingColor"
+            type="button"
+            class="secondary-action">
+      {{ isPickingColor ? 'Haciendo selección...' : 'Seleccionar de la imagen' }}
+    </button>
+  </div>
+</main>
 
 <app-footer></app-footer>
