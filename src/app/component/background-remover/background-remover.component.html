@@ -3,8 +3,10 @@
 <main class="background-removal-app">
   <!-- Selector de modo -->
   <section class="mode-selector" aria-labelledby="mode-selector-heading">
-    <app-imagen-load (fileSelected)="onFileSelected($event)"></app-imagen-load>
     <h2 id="mode-selector-heading" class="section-heading">Método de eliminación de fondo</h2>
+    
+    <app-imagen-load (fileSelected)="onFileSelected($event)"></app-imagen-load>
+    
     <div class="mode-buttons" role="group" aria-label="Métodos de eliminación de fondo">
       <button *ngFor="let mode of removalModes" 
               [class.active]="selectedMode === mode.id" 
@@ -31,6 +33,7 @@
   <!-- Configuración para modo IA -->
   <section *ngIf="selectedMode === 'ai'" class="settings-container" aria-labelledby="ai-settings-heading">
     <h3 id="ai-settings-heading" class="section-heading">Tipo de imagen</h3>
+    
     <div class="preset-buttons" role="group" aria-label="Preajustes de imagen">
       <button *ngFor="let preset of presets; let i = index" 
               [class.active]="selectedPreset === i" 
@@ -72,6 +75,7 @@
   <!-- Configuración para modo Color Key -->
   <section *ngIf="selectedMode === 'color'" class="settings-container" aria-labelledby="color-settings-heading">
     <h3 id="color-settings-heading" class="section-heading">Selección de color</h3>
+    
     <div class="color-picker-container">
       <div class="color-preview" [style.background-color]="keyColor" aria-label="Color seleccionado"></div>
       <input type="color" id="colorPicker" [(ngModel)]="keyColor" [disabled]="isProcessing">
@@ -107,16 +111,10 @@
             class="primary-action">
       Procesar y Descargar
     </button>
-    
-    <button *ngIf="selectedMode === 'color'" 
-            (click)="toggleColorPicker()" 
-            [disabled]="isProcessing || !selectedFile" 
-            [class.active]="isPickingColor"
-            type="button"
-            class="secondary-action">
-      {{ isPickingColor ? 'Haciendo selección...' : 'Seleccionar de la imagen' }}
-    </button>
   </div>
+
+  <!-- Espacio vacío al final -->
+  <div class="empty-space"></div>
 </main>
 
 <app-footer></app-footer>
