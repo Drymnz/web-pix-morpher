@@ -36,15 +36,27 @@ export class ScaleImgComponent {
       this.error = 'Por favor seleccione una imagen';
       return;
     }
-
+  
     try {
-      await this.imageProcessor.processImage(
+      const imageUrl = await this.imageProcessor.processImage(
         this.selectedFile,
         this.targetWidth,
         this.targetHeight
       );
+      
+      console.log('URL de imagen procesada:', imageUrl);
+      
+      // Crear un enlace de descarga y simular el clic
+      const link = document.createElement('a');
+      link.href = imageUrl;
+      link.download = 'imagen_procesada.png'; // Nombre del archivo
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+  
     } catch (err) {
       this.error = err instanceof Error ? err.message : 'Error procesando la imagen';
     }
   }
+  
 }
