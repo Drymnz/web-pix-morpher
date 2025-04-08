@@ -16,6 +16,7 @@
             "outputPath": "dist/pix-morpher",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -41,22 +42,6 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": {
-              "ng": "ng",
-              "start": "ng serve",
-              "build": "ng build",
-              "build:ssr": "ng build && ng run PixMorpher:server",
-              "serve:ssr": "node dist/pix-morpher/server/main.js",
-              "dev:ssr": "ng run PixMorpher:serve-ssr"
-            },
-            "server": {
-              "builder": "@angular-devkit/build-angular:server",
-              "options": {
-                "outputPath": "dist/pix-morpher/server",
-                "main": "server.ts",
-                "tsConfig": "tsconfig.server.json"
-              }
-            },
             "baseHref": "/",
             "deployUrl": "/browser/",
             "outputMode": "server",
@@ -87,6 +72,14 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/pix-morpher/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
