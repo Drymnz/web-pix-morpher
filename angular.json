@@ -26,6 +26,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "ads.txt",
+                "input": "src/assets",
+                "output": "/"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src/assets",
+                "output": "/"
               }
             ],
             "styles": [
@@ -33,6 +43,8 @@
             ],
             "scripts": [],
             "server": "src/main.server.ts",
+            "baseHref": "/",
+            "deployUrl": "/browser/",
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
@@ -90,6 +102,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "ads.txt",
+                "input": "src/assets",
+                "output": "/"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src/assets",
+                "output": "/"
               }
             ],
             "styles": [
