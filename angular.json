@@ -49,7 +49,14 @@
               "serve:ssr": "node dist/pix-morpher/server/main.js",
               "dev:ssr": "ng run PixMorpher:serve-ssr"
             },
-            "server": "src/main.server.ts",
+            "server": {
+              "builder": "@angular-devkit/build-angular:server",
+              "options": {
+                "outputPath": "dist/pix-morpher/server",
+                "main": "server.ts",
+                "tsConfig": "tsconfig.server.json"
+              }
+            },
             "baseHref": "/",
             "deployUrl": "/browser/",
             "outputMode": "server",
