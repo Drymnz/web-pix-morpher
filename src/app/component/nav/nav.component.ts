@@ -17,8 +17,8 @@ export class NavComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  // Método para redirigir a /home
+  // Método para redirigir a raiz
   goToHome() {
-    this.router.navigate(['/home']); // Navega a la ruta /home
+    this.router.navigate(['/']); // Navega a la ruta raiz
   }
 }

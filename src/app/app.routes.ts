@@ -8,7 +8,6 @@ import { BackgroundRemoverComponent } from './component/background-remover/backg
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },//home
-  { path: 'home', component: HomeComponent },//home
   { path: 'scale', component: ScaleImgComponent },
   { path: 'converter', component: ConvertidorImgComponent },
   { path: 'remover', component: BackgroundRemoverComponent },

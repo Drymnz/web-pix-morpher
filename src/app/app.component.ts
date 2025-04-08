@@ -13,10 +13,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  jsonData: any[] = []; // Array para almacenar los datos
-
-  ngOnInit(): void {
-    // Llamar al servicio para obtener los datos
-    
-  }
 }
