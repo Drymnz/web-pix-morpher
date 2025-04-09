@@ -74,6 +74,7 @@
           "defaultConfiguration": "production"
         },
         "server": {
+          "allowedHosts": ["pixmorpher.online"],
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/pix-morpher/server",

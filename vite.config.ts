@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   server: {
-    allowedHosts: ['pixmorpher.online']
+    host: 'pixmorpher.online',
+    allowedHosts: ['pixmorpher.online', 'localhost'],
   }
 });
