@@ -5,6 +5,10 @@ rm -rf package-lock.json
 
 npm install && npm audit fix --force
 
+##error 
+npm uninstall @nguniversal/express-engine
+npm install @nguniversal/express-engine
+
 ng build --configuration=production
 
 sudo rm -rf /usr/share/nginx/html/pix-morpher
