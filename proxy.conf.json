@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://pixmorpher.online",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  
