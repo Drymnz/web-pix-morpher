@@ -1,11 +1,8 @@
 <app-nav></app-nav>
 <div class="container">
   <h2>Procesador de Imágenes</h2>
-
   <app-imagen-load (fileSelected)="onFileSelected($event)"></app-imagen-load>
-
   <app-dimension-selector (dimensionsChanged)="onDimensionsChanged($event)"></app-dimension-selector>
-
   <button (click)="processImage()" [disabled]="!selectedFile">
     Procesar y Descargar
   </button>

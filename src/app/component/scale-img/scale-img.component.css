@@ -1,5 +1,5 @@
 .container {
-  max-width: 600px;
+  width: 90%;
   margin: 40px auto;
   margin-bottom: 5em;
   border: 1px solid #ccc;
@@ -31,4 +31,12 @@ button:disabled {
   color: red;
   margin-top: 10px;
   text-align: center;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px auto;
+    width: 90%;
+  }
 }
