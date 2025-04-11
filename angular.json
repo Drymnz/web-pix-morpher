@@ -38,6 +38,12 @@
                 "input": "src/assets",
                 "output": "/"
               }
+              ,
+              {
+                "glob": "BingSiteAuth.xml",
+                "input": "src/assets",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.css"
@@ -118,6 +124,12 @@
               },
               {
                 "glob": "sitemap.xml",
+                "input": "src/assets",
+                "output": "/"
+              }
+              ,
+              {
+                "glob": "BingSiteAuth.xml",
                 "input": "src/assets",
                 "output": "/"
               }
