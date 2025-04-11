@@ -44,6 +44,12 @@
                 "input": "src/assets",
                 "output": "/"
               }
+              ,
+              {
+                "glob": "robots.txt",
+                "input": "src/assets",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.css"
@@ -130,6 +136,11 @@
               ,
               {
                 "glob": "BingSiteAuth.xml",
+                "input": "src/assets",
+                "output": "/"
+              },
+              {
+                "glob": "robots.txt",
                 "input": "src/assets",
                 "output": "/"
               }
