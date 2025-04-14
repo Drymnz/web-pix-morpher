@@ -7,15 +7,13 @@ Disallow: /tmp/
 Disallow: /assets/css/
 Disallow: /assets/js/
 
-# Estas 3 líneas se eliminan para evitar bloquear contenido o sitemap
-# Disallow: /*.json$
-# Disallow: /*.xml$
-# Disallow: /*?*
-
+# Tiempo entre solicitudes para evitar sobrecargas
 Crawl-delay: 5
 
+# Sitemap
 Sitemap: https://pixmorpher.online/sitemap.xml
 
+# Instrucciones específicas para bots agresivos
 User-agent: AhrefsBot
 Crawl-delay: 10
 
