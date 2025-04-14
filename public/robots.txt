@@ -1,30 +1,21 @@
 User-agent: *
 Allow: /
-Allow: /scale
-Allow: /converter
-Allow: /remover
-Allow: /terms
-Allow: /privacy
-
-# Archivos y directorios a no indexar
 Disallow: /admin/
 Disallow: /api/
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /assets/css/
 Disallow: /assets/js/
-Disallow: /*.json$
-Disallow: /*.xml$
-Disallow: /*.php$
-Disallow: /*?*
 
-# Tiempo entre solicitudes para evitar sobrecargas
+# Estas 3 líneas se eliminan para evitar bloquear contenido o sitemap
+# Disallow: /*.json$
+# Disallow: /*.xml$
+# Disallow: /*?*
+
 Crawl-delay: 5
 
-# Sitemap
 Sitemap: https://pixmorpher.online/sitemap.xml
 
-# Instrucciones específicas para bots agresivos
 User-agent: AhrefsBot
 Crawl-delay: 10
 
@@ -32,4 +23,4 @@ User-agent: SemrushBot
 Crawl-delay: 10
 
 User-agent: MJ12bot
-Disallow: /
+Disallow:
