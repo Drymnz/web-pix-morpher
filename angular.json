@@ -16,7 +16,6 @@
             "outputPath": "dist/pix-morpher",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "server": "src/main.server.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -37,14 +36,12 @@
                 "glob": "sitemap.xml",
                 "input": "src/assets",
                 "output": "/"
-              }
-              ,
+              },
               {
                 "glob": "BingSiteAuth.xml",
                 "input": "src/assets",
                 "output": "/"
-              }
-              ,
+              },
               {
                 "glob": "robots.txt",
                 "input": "src/assets",
@@ -55,11 +52,10 @@
               "src/styles.css"
             ],
             "baseHref": "/",
-            "deployUrl": "/browser/",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "outputMode": "static",
+            "allowedCommonJsDependencies": [
+              "@mediapipe/selfie_segmentation"
+            ]
           },
           "configurations": {
             "production": {
@@ -71,8 +67,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "6kB",
+                  "maximumError": "10kB"
                 }
               ],
               "outputHashing": "all"
@@ -84,15 +80,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "server": {
-          "allowedHosts": ["pixmorpher.online"],
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/pix-morpher/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
-          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -112,48 +99,20 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "index": "src/index.html",
-            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "ads.txt",
-                "input": "src/assets",
-                "output": "/"
-              },
-              {
-                "glob": "sitemap.xml",
-                "input": "src/assets",
-                "output": "/"
-              }
-              ,
-              {
-                "glob": "BingSiteAuth.xml",
-                "input": "src/assets",
-                "output": "/"
-              },
-              {
-                "glob": "robots.txt",
-                "input": "src/assets",
-                "output": "/"
               }
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           }
         }
       }

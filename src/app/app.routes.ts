@@ -9,11 +9,39 @@ import { PoliticaPriacidadComponent } from './component/politica-priacidad/polit
 import { TerminosCondicionesComponent } from './component/terminos-condiciones/terminos-condiciones.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },//home
-  { path: 'scale', component: ScaleImgComponent },
-  { path: 'converter', component: ConvertidorImgComponent },
-  { path: 'remover', component: BackgroundRemoverComponent },
-  { path: 'privacy', component: PoliticaPriacidadComponent },
-  { path: 'terms', component: TerminosCondicionesComponent },
-  { path: '**', component: Error404Component } // Ruta wildcard para capturar rutas no definidas
+  { 
+    path: '', 
+    component: HomeComponent,
+    title: 'PixMorpher - Home'
+  },
+  { 
+    path: 'scale', 
+    component: ScaleImgComponent,
+    title: 'PixMorpher - Scale Images'
+  },
+  { 
+    path: 'converter', 
+    component: ConvertidorImgComponent,
+    title: 'PixMorpher - Image Converter'
+  },
+  { 
+    path: 'remover', 
+    component: BackgroundRemoverComponent,
+    title: 'PixMorpher - Background Remover'
+  },
+  { 
+    path: 'privacy', 
+    component: PoliticaPriacidadComponent,
+    title: 'PixMorpher - Privacy Policy'
+  },
+  { 
+    path: 'terms', 
+    component: TerminosCondicionesComponent,
+    title: 'PixMorpher - Terms and Conditions'
+  },
+  { 
+    path: '**', 
+    component: Error404Component,
+    title: 'PixMorpher - Page Not Found'
+  }
 ];
